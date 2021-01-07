@@ -10,6 +10,12 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
+import { PromotionComponent } from './promotion/promotion.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment/comment-list/comment-list.component';
+import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
+import { CommentItemComponent } from './comment/comment-list/comment-item/comment-item.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,12 @@ import { ContactComponent } from './contact/contact.component';
     HomePageComponent,
     LoginComponent,
     RegisterComponent,
-    ContactComponent
+    ContactComponent,
+    PromotionComponent,
+    CommentComponent,
+    CommentListComponent,
+    CommentDetailComponent,
+    CommentItemComponent
   ],
   imports: [
     BrowserModule,
