@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService, UserService, AuthenticationService } from '../services';
 import { first } from 'rxjs/operators';
@@ -13,29 +13,38 @@ import { first } from 'rxjs/operators';
 })
 
 export class RegisterComponent implements OnInit {
-registerForm: FormGroup;
+    registerForm: FormGroup;
+
   loading = false;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private authenticationService: AuthenticationService,
-              private userService: UserService,
-              private alertService: AlertService) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+  constructor(
+              //     private formBuilder: FormBuilder,
+              // private router: Router,
+              // private authenticationService: AuthenticationService,
+              // private userService: UserService,
+              // private alertService: AlertService
+  ) {
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
 
   }
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      phoneNumber: ['', Validators.required]
+    this.registerForm = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      phoneNumber: new FormControl(null, Validators.required)
     });
+    // this.registerForm = this.formBuilder.group({
+    //   username: ['', Validators.required],
+    //   email: ['', Validators.required],
+    //   password: ['', Validators.required],
+    //   confirmPassword: ['', Validators.required],
+    //   phoneNumber: ['', Validators.required]
+    // });
   }
   // // tslint:disable-next-line:typedef
   // get f() { return this.registerForm.controls; }
@@ -65,4 +74,8 @@ registerForm: FormGroup;
   //         this.loading = false;
   //       });
   // }
+  onRegister(): any {
+      const newUser = {...this.registerForm.value};
+      console.log(newUser);
+  }
 }

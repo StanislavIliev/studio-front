@@ -1,3 +1,5 @@
+<form [formGroup]="registerForm" (submit)="onRegister()"></form>
+
 <div>
   <section id="cover" class="min-vh-100">
     <div id="cover-caption">
@@ -8,18 +10,17 @@
               <form action="" class="justify-content-center">
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <label class="sr-only">Username</label>
-                  <input type="text" class="form-control" placeholder="username">
+                  <input type="text" class="form-control" formControlName="username" placeholder="username">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
                   <label class="sr-only">Email</label>
-                  <input type="text" class="form-control" placeholder="email">
+                  <input type="text" class="form-control" formControlName="email" placeholder="email">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
                   <label class="sr-only">Password</label>
-                  <input type="text" class="form-control" placeholder="password">
+                  <input type="text" class="form-control" formControlName="password" placeholder="password">
                 </div>
                 <div class="form-group">
                   <label for="confirmPassword">Confirm Password</label>
@@ -29,7 +30,7 @@
                 <div class="form-group">
                   <label for="phoneNumber">Phone Number</label>
                   <label class="sr-only">Phone Number</label>
-                  <input type="text" class="form-control" placeholder="phoneNumber">
+                  <input type="text" class="form-control" formControlName="phoneNumber" placeholder="phoneNumber">
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg">Register</button>

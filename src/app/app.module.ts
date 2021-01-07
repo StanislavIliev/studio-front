@@ -15,6 +15,8 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list/comment-list.component';
 import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
 import { CommentItemComponent } from './comment/comment-list/comment-item/comment-item.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -27,15 +29,17 @@ import { CommentItemComponent } from './comment/comment-list/comment-item/commen
     LoginComponent,
     RegisterComponent,
     ContactComponent,
-    PromotionComponent,
     CommentComponent,
     CommentListComponent,
     CommentDetailComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    PromotionComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
