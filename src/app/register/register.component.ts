@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertService, UserService, AuthenticationService } from '../services';
+// import { AlertService, UserService, AuthenticationService } from '../services';
 import { first } from 'rxjs/operators';
+import {User} from '../models/user';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
@@ -15,43 +17,35 @@ import { first } from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
 
+    user: User = new User();
   loading = false;
   submitted = false;
 
   constructor(
-              //     private formBuilder: FormBuilder,
-              // private router: Router,
-              // private authenticationService: AuthenticationService,
-              // private userService: UserService,
-              // private alertService: AlertService
+               // private formBuilder: FormBuilder,
+               // private router: Router,
+               // private authenticationService: AuthenticationService,
+               private authService: AuthService,
+               // private alertService: AlertService
   ) {
-    // if (this.authenticationService.currentUserValue) {
-    //   this.router.navigate(['/']);
-    // }
+     // if (this.authenticationService.currentUserValue) {
+     //   this.router.navigate(['/']);
+     // }
 
   }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      email: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
-      phoneNumber: new FormControl(null, Validators.required)
+      username: new FormControl(null),
+      email: new FormControl(null),
+      password: new FormControl(null),
+      confirmPassword: new FormControl(null),
+      phoneNumber: new FormControl(null)
     });
-    // this.registerForm = this.formBuilder.group({
-    //   username: ['', Validators.required],
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required],
-    //   confirmPassword: ['', Validators.required],
-    //   phoneNumber: ['', Validators.required]
-    // });
+   }
+  onSubmit(): any {
+    this.submitted = true;
   }
-  // // tslint:disable-next-line:typedef
-  // get f() { return this.registerForm.controls; }
-  //
-  // // tslint:disable-next-line:typedef
-  // onSubmit() {
-  //   this.submitted = true;
   //
   //   // reset alerts on submit
   //   this.alertService.clear();
@@ -68,7 +62,7 @@ export class RegisterComponent implements OnInit {
   //       data => {
   //         this.alertService.success('Registration successful', true);
   //         this.router.navigate(['/login']);
-  //       },
+  //      },
   //       error => {
   //         this.alertService.error(error);
   //         this.loading = false;
@@ -76,6 +70,10 @@ export class RegisterComponent implements OnInit {
   // }
   onRegister(): any {
       const newUser = {...this.registerForm.value};
-      console.log(newUser);
+      this.authService.register(newUser)
+        .subscribe((response) => {
+          this.user = response;
+          console.log(this.user);
+        });
   }
 }

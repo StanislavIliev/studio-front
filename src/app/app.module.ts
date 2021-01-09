@@ -15,9 +15,10 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list/comment-list.component';
 import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
 import { CommentItemComponent } from './comment/comment-list/comment-item/comment-item.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { OrderComponent } from './order/order.component';
-
+import { AlertComponent } from './alert/alert.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,14 @@ import { OrderComponent } from './order/order.component';
     CommentDetailComponent,
     CommentItemComponent,
     PromotionComponent,
-    OrderComponent
+    OrderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
