@@ -5,6 +5,13 @@ export class Order {
   name?: string;
   description?: string;
   price?: number;
-  manicuretype?: string;
+  manicureType?: string;
   username?: User;
+
+  constructor(){
+    this.name = '',
+      this.description = '',
+      this.price = null,
+    this.manicureType = '';
+  }
 }
