@@ -2,12 +2,12 @@ import {User} from './user';
 
 export class Comment {
   id?: number;
-  name?: string;
+  topic?: string;
   description?: string;
   username?: User;
 
   constructor(){
-      this.name = '',
+      this.topic = '',
       this.description = '';
       this.username = null;
   }

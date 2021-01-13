@@ -5,18 +5,14 @@ export class Order {
   name?: string;
   description?: string;
   price?: number;
-  manicureType?: string;
-  username?: string;
-  email?: string;
-  phoneNumber?: number;
+  manicure?: string;
+  username?: User;
 
   constructor(){
     this.name = '',
       this.description = '',
       this.price = null,
-    this.manicureType = '';
-    this.username = '';
-    this.email = '';
-    this.phoneNumber = null;
+    this.manicure = '';
+    this.username = null;
   }
 }

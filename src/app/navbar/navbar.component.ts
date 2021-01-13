@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import { Subscription } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,8 @@ export class NavbarComponent implements OnInit {
   subscription: Subscription;
   authService: AuthService;
   constructor(
-    authService: AuthService
+    authService: AuthService,
+    private router: Router
   ) {
   this.authService = authService;
 }
@@ -22,6 +24,7 @@ export class NavbarComponent implements OnInit {
   logout(event: Event): void {
     event.preventDefault();
     this.authService.logOut();
+    this.router.navigate(['/']);
   }
 
 }

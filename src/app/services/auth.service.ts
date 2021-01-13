@@ -85,7 +85,6 @@ export class AuthService {
     this.loggedUser = null;
     localStorage.clear();
     this.router.navigate(['/login']);
-
   }
 
   public saveToken(token: string): void {

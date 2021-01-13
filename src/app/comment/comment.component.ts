@@ -24,7 +24,7 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.addCommentForm = new FormGroup({
-      name: new FormControl(null),
+      topic: new FormControl(null),
       description: new FormControl(null),
       user: new FormControl(this.user)
     });
@@ -37,7 +37,7 @@ export class CommentComponent implements OnInit {
       .subscribe((response) => {
         this.comment = response;
         console.log(this.comment);
-       // this.router.navigate(['/all']);
+        this.router.navigate(['/']);
       });
   }
 

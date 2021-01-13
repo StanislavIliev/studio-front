@@ -3,6 +3,7 @@ import {Order} from '../models/order';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
 import { User } from '../models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -10,12 +11,14 @@ import { User } from '../models/user';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  user: User = new User();
+
   addOrderForm: FormGroup;
   order: Order = new Order();
+  user: User = JSON.parse(localStorage.getItem('user'));
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService ,
+    private router: Router
   ) {
   }
 
@@ -24,8 +27,8 @@ export class OrderComponent implements OnInit {
       name: new FormControl(null),
       description: new FormControl(null),
       price: new FormControl(null),
-      manicureType: new FormControl(null),
-      user: new FormControl(null)
+      manicure: new FormControl(null),
+      user: new FormControl(this.user)
     });
   }
 
@@ -36,6 +39,7 @@ export class OrderComponent implements OnInit {
       .subscribe((response) => {
         this.order = response;
         console.log(this.order);
+        this.router.navigate(['/']);
       });
   }
 }
