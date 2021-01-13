@@ -1,34 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit , OnDestroy  } from '@angular/core';
+import {FormGroup, FormBuilder, Validators, NgForm} from '@angular/forms';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import {AuthService} from '../services/auth.service';
 import {User} from '../models/user';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-   loginForm: FormGroup;
-  user: User = new User();
+export class LoginComponent implements OnInit, OnDestroy {
+  loginForm: FormGroup;
+  public logged: boolean;
+  private subscriptions: Subscription[] = [];
+
+  private loginUser: User = {
+    username: '',
+    password: ''
+  };
+
 
   constructor(
-    private authService: AuthService
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private authenticationService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      username: new FormControl(null),
-      password: new FormControl(null)
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
-  logIn(): any {
-    const newUser = {...this.loginForm.value};
-    this.authService.login(newUser)
-      .subscribe((response) => {
-        this.user = response;
-        console.log(this.user);
-      });
+
+  logIn(event: Event): void {
+
+      this.loginUser.username = this.loginForm.value.username;
+      this.loginUser.password = this.loginForm.value.password;
+      console.log(this.loginUser);
+      this.logged = true;
+      this.subscriptions.push(
+        this.authenticationService.logIn(this.loginUser).subscribe(
+          (response: HttpResponse<User>) => {
+            const token = response.headers.get('Jwt-Token');
+            this.authenticationService.saveToken(token);
+            this.authService.setAuthorityVariables(token);
+            this.authenticationService.addUserToLocalCache(response.body);
+
+            this.router.navigate(['/']);
+
+            this.logged = false;
+          },
+          (errorResponse: HttpErrorResponse) => {
+            this.logged = false;
+          }
+        )
+      );
+    }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
+  reloadPage(): void {
+    window.location.reload();
+  }
 }

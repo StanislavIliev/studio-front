@@ -5,16 +5,16 @@
         <div class="row text-white">
           <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <div class="px-2">
-              <form action="" [formGroup]="loginForm" (submit)="logIn()" class="justify-content-center">
+              <form [formGroup]="loginForm" (submit)="logIn($event)" class="justify-content-center">
                 <div class="form-group">
-                  <label for="cover-caption">Username</label>
+                  <label for="username">Username</label>
                   <label class="sr-only">Username</label>
                   <input type="text" class="form-control" placeholder="username" formControlName="username">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
                   <label class="sr-only">Password</label>
-                  <input type="text" class="form-control" placeholder="password" formControlName="password">
+                  <input type="password" class="form-control" placeholder="password" formControlName="password">
                 </div>
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">

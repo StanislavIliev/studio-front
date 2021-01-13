@@ -23,9 +23,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
                // private formBuilder: FormBuilder,
-               // private router: Router,
+                private router: Router,
                // private authenticationService: AuthenticationService,
-               private authService: AuthService,
+                private authService: AuthService,
                // private alertService: AlertService
   ) {
      // if (this.authenticationService.currentUserValue) {
@@ -75,5 +75,6 @@ export class RegisterComponent implements OnInit {
           this.user = response;
           console.log(this.user);
         });
+      this.router.navigate(['/login']);
   }
 }

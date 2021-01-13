@@ -5,8 +5,10 @@ export class Comment {
   name?: string;
   description?: string;
   username?: User;
+
   constructor(){
       this.name = '',
       this.description = '';
+      this.username = null;
   }
 }

@@ -1,24 +1,24 @@
-// import { Injectable } from '@angular/core';
-// import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-//
-// import { AuthenticationService } from '../services';
-//
-// @Injectable({ providedIn: 'root' })
-// export class AuthGuard implements CanActivate {
-//   constructor(
-//     private router: Router,
-//     private authenticationService: AuthenticationService
-//   ) {}
-//
-//   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-//     const currentUser = this.authenticationService.currentUserValue;
-//     if (currentUser) {
-//       // authorised so return true
-//       return true;
-//     }
-//
-//     // not logged in so redirect to login page with the return url
-//     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-//     return false;
-//   }
-// }
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import {AuthService} from '../services/auth.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+  constructor(private authenticationService: AuthService, private router: Router) {}
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    return this.isUserLoggedIn();
+  }
+
+  private isUserLoggedIn(): boolean {
+    if (this.authenticationService.isUserLoggedIn()) {
+      return true;
+    }
+    this.router.navigate(['/login']);
+    // this.notificationService.notify(NotificationType.ERROR, `You need to log in to access this page`);
+    return false;
+  }
+}
