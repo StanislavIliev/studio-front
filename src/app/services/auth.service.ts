@@ -68,6 +68,13 @@ export class AuthService {
     return this.http.post<User>(`http://localhost:8080/users/login`, user , {observe: 'response' });
   }
 
+  public isAdmin(role: string): boolean {
+    return !!localStorage.getItem('admin');
+  }
+  public isUser(role: string): boolean {
+    return !!localStorage.getItem('user');
+  }
+
   public addPromoin(promotion: Promotion): Observable<Promotion> {
     return this.http.post<Promotion>(`http://localhost:8080/promotions/add`, promotion);
   }
@@ -104,6 +111,11 @@ export class AuthService {
     return this.token;
   }
 
+  public update(user: User): Observable<User> {
+    return this.http.post<User>(`http://localhost:8080/users/update`, user);
+  }
+
+
   public isUserLoggedIn(): boolean {
     this.loadToken();
     if (this.token != null && this.token.trim() !== '') {
@@ -117,5 +129,21 @@ export class AuthService {
       this.logOut();
       return false;
     }
+  }
+
+  getCommentById(id: string): Observable<Comment>{
+    return this.http.get(`http://localhost:8080/comments/${id}`);
+  }
+
+  getOrderById(id: string): Observable<Order>{
+    return this.http.get(`http://localhost:8080/orders/${id}`);
+  }
+
+  getPromotionById(id: string): Observable<Promotion>{
+    return this.http.get(`http://localhost:8080/promotions/${id}`);
+  }
+
+  handleError(error: HttpErrorResponse): void {
+    console.log(error);
   }
 }

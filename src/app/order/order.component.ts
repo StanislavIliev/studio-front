@@ -42,4 +42,11 @@ export class OrderComponent implements OnInit {
         this.router.navigate(['/']);
       });
   }
+
+  getOrderById(orderId: string): void{
+    this.authService.getOrderById(orderId)
+      .subscribe((response) => {
+        this.order = response;
+      });
+  }
 }

@@ -5,30 +5,40 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item active" >
         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+      <li class="nav-item" >
+        <a class="nav-link"  routerLink="/login">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/register">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/comment">Add comment</a>
+        <a class="nav-link"  routerLink="/comment">Add comment</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/promotion">Add promotion</a>
+        <a class="nav-link"  routerLink="/promotion">Add promotion</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/order">Add order</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/logout">Logout</a>
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/logout">Logout</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="" class="dropdown-toggle" role="button">Manage <span class="carret"></span></a>
+        <ul>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
       </li>
     </ul>
   </div>
 </nav>
+

@@ -25,6 +25,13 @@ export class PromotionComponent implements OnInit {
     });
   }
 
+  getPromotionById(promotionId: string): void{
+    this.authService.getPromotionById(promotionId)
+      .subscribe((response) => {
+        this.promotion = response;
+      });
+  }
+
   addPromoIn(): any {
     const newPromotion = {...this.promotionForm.value};
     console.log(newPromotion);

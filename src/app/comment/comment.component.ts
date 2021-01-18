@@ -41,4 +41,10 @@ export class CommentComponent implements OnInit {
       });
   }
 
+  getCommentById(commentId: string): void{
+    this.authService.getCommentById(commentId)
+      .subscribe((response) => {
+        this.comment = response;
+      });
+  }
 }
