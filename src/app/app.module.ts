@@ -16,6 +16,10 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
 import { AlertComponent } from './alert/alert.component';
 import {HttpClientModule} from '@angular/common/http';
+import { CommentUpdateComponent } from './components/comment-update/comment-update.component';
+import { OrderUpdateComponent } from './components/order-update/order-update.component';
+import { PromotionUpdateComponent } from './components/promotion-update/promotion-update.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import {HttpClientModule} from '@angular/common/http';
     CommentComponent,
     PromotionComponent,
     OrderComponent,
-    AlertComponent
+    AlertComponent,
+    CommentUpdateComponent,
+    OrderUpdateComponent,
+    PromotionUpdateComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

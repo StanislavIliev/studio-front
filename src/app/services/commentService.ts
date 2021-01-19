@@ -27,4 +27,7 @@ export class CommentService {
     return this.http.post(`http://localhost:8080/comments/delete/`, comment);
   }
 
+  public updateCommentForm(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`http://localhost:8080/comments/update`, comment);
+  }
 }

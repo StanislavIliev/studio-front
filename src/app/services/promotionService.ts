@@ -27,4 +27,7 @@ export class PromotionService {
     return this.http.post(`http://localhost:8080/promotions/delete/`, promotion);
   }
 
+  public updatePromotion(promotion: Promotion): Observable<Promotion> {
+    return this.http.post<Promotion>(`http://localhost:8080/promotions/update`, promotion);
+  }
 }

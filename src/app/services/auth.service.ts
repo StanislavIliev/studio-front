@@ -98,7 +98,7 @@ export class AuthService {
     return this.token;
   }
 
-  public update(user: User): Observable<User> {
+  public updateUser(user: User): Observable<User> {
     return this.http.post<User>(`http://localhost:8080/users/update`, user);
   }
 
