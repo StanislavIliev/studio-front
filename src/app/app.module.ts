@@ -6,17 +6,14 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ContactComponent } from './contact/contact.component';
-import { PromotionComponent } from './promotion/promotion.component';
-import { CommentComponent } from './comment/comment.component';
-import { CommentListComponent } from './comment/comment-list/comment-list.component';
-import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
-import { CommentItemComponent } from './comment/comment-list/comment-item/comment-item.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { PromotionComponent } from './components/promotion/promotion.component';
+import { CommentComponent } from './components/comment/comment.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './components/order/order.component';
 import { AlertComponent } from './alert/alert.component';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -31,9 +28,6 @@ import {HttpClientModule} from '@angular/common/http';
     RegisterComponent,
     ContactComponent,
     CommentComponent,
-    CommentListComponent,
-    CommentDetailComponent,
-    CommentItemComponent,
     PromotionComponent,
     OrderComponent,
     AlertComponent

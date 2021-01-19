@@ -3,7 +3,6 @@ import { HttpClient, HttpResponse, HttpErrorResponse, HttpEvent } from '@angular
 import {User} from '../models/user';
 import {Observable , BehaviorSubject} from 'rxjs';
 import {Promotion} from '../models/promotion';
-import {Order} from '../models/order';
 import {Comment} from '../models/comment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
@@ -75,18 +74,6 @@ export class AuthService {
     return !!localStorage.getItem('user');
   }
 
-  public addPromoin(promotion: Promotion): Observable<Promotion> {
-    return this.http.post<Promotion>(`http://localhost:8080/promotions/add`, promotion);
-  }
-
-  public addOrderForm(order: Order): Observable<Order> {
-    return this.http.post<Order>(`http://localhost:8080/orders/add`, order);
-  }
-
-  public addCommentForm(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`http://localhost:8080/comments/add`, comment);
-  }
-
   public logOut(): void {
     this.token = null;
     this.loggedUser = null;
@@ -129,18 +116,6 @@ export class AuthService {
       this.logOut();
       return false;
     }
-  }
-
-  getCommentById(id: string): Observable<Comment>{
-    return this.http.get(`http://localhost:8080/comments/${id}`);
-  }
-
-  getOrderById(id: string): Observable<Order>{
-    return this.http.get(`http://localhost:8080/orders/${id}`);
-  }
-
-  getPromotionById(id: string): Observable<Promotion>{
-    return this.http.get(`http://localhost:8080/promotions/${id}`);
   }
 
   handleError(error: HttpErrorResponse): void {

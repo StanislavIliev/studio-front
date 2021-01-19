@@ -1,0 +1,39 @@
+<div>
+    <section id="cover" class="min-vh-100">
+      <div id="cover-caption">
+        <div class="container">
+          <div class="row text-white">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+              <div class="px-2">
+                <form action="" class="justify-content-center" [formGroup]="registerForm" (submit)="onRegister()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" formControlName="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" formControlName="email" placeholder="email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="password">
+                </div>
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" class="form-control" formControlName="confirmPassword"
+                         placeholder="confirmPassword">
+                </div>
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number</label>
+                  <input type="number" class="form-control" formControlName="phoneNumber" placeholder="phoneNumber">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
