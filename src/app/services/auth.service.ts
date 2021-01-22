@@ -87,8 +87,14 @@ export class AuthService {
   }
 
   public addUserToLocalCache(user: User): void {
+    console.log(user);
     localStorage.setItem('user', JSON.stringify(user));
   }
+
+  public getUserFromLocalCache(): User {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
 
   public loadToken(): void {
     this.token = localStorage.getItem('token');
@@ -122,3 +128,4 @@ export class AuthService {
     console.log(error);
   }
 }
+

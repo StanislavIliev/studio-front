@@ -4,6 +4,8 @@ export class User {
   email?: string;
   password?: string;
   confirmPassword?: string;
+  firstName?: string;
+  lastName?: string;
   phoneNumber?: string;
   token?: string;
 
@@ -11,6 +13,8 @@ export class User {
       this.username = '',
       this.password = '',
       this.email = '',
+      this.firstName = '',
+      this.lastName = '',
       this.phoneNumber = '',
       this.token = '';
   }

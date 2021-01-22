@@ -40,6 +40,8 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null),
       password: new FormControl(null),
       confirmPassword: new FormControl(null),
+      firstName: new FormControl(null),
+      lastName: new FormControl(null),
       phoneNumber: new FormControl(null)
     });
    }

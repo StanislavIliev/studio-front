@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Promotion} from '../../models/promotion';
 import {FormControl, FormGroup} from '@angular/forms';
 import {PromotionService} from '../../services/promotionService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-promotion',
@@ -14,6 +15,7 @@ export class PromotionComponent implements OnInit {
   promotion: Promotion = new Promotion();
 
   constructor(
+    private router: Router,
     private promotionService: PromotionService
   ) { }
 
@@ -41,6 +43,7 @@ export class PromotionComponent implements OnInit {
         this.promotion = response;
         console.log(this.promotion);
       });
+    this.router.navigate(['/login']);
   }
 
 }

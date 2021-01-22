@@ -20,6 +20,9 @@ import { CommentUpdateComponent } from './components/comment-update/comment-upda
 import { OrderUpdateComponent } from './components/order-update/order-update.component';
 import { PromotionUpdateComponent } from './components/promotion-update/promotion-update.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { PromotionDetailsComponent } from './components/promotion-details/promotion-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
     CommentUpdateComponent,
     OrderUpdateComponent,
     PromotionUpdateComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    CommentDetailsComponent,
+    OrderDetailsComponent,
+    PromotionDetailsComponent
   ],
   imports: [
     BrowserModule,
