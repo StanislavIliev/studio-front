@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import {User} from '../models/user';
 import {Observable , BehaviorSubject} from 'rxjs';
-import {Promotion} from '../models/promotion';
-import {Comment} from '../models/comment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import {JwtResponse} from '../helpers/JwtResponse';
