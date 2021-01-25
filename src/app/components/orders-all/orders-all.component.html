@@ -1,0 +1,22 @@
+<div>
+  <section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <div
+              *ngFor = "let order of orders"
+            >
+              <h5>{{order.name}}</h5>
+              <p>{{order.description}}</p>
+              <p>{{order.price}}</p>
+
+              <a [routerLink]="['/order/delete', order.id]" class="btn btn-info">Delete order</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

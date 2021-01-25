@@ -23,6 +23,9 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
 import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { PromotionDetailsComponent } from './components/promotion-details/promotion-details.component';
+import { OrdersAllComponent } from './components/orders-all/orders-all.component';
+import { PromotionsAllComponent } from './components/promotions-all/promotions-all.component';
+import { CommentsAllComponent } from './components/comments-all/comments-all.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { PromotionDetailsComponent } from './components/promotion-details/promot
     UserUpdateComponent,
     CommentDetailsComponent,
     OrderDetailsComponent,
-    PromotionDetailsComponent
+    PromotionDetailsComponent,
+    OrdersAllComponent,
+    PromotionsAllComponent,
+    CommentsAllComponent
   ],
   imports: [
     BrowserModule,

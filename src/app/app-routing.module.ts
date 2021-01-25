@@ -13,6 +13,9 @@ import {CommentUpdateComponent} from './components/comment-update/comment-update
 import {UserUpdateComponent} from './components/user-update/user-update.component';
 import {OrderDetailsComponent} from './components/order-details/order-details.component';
 import {CommentDetailsComponent} from './components/comment-details/comment-details.component';
+import {OrdersAllComponent} from './components/orders-all/orders-all.component';
+import {PromotionsAllComponent} from './components/promotions-all/promotions-all.component';
+import {CommentsAllComponent} from './components/comments-all/comments-all.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -27,7 +30,10 @@ const routes: Routes = [
   {path: 'promotion-update', component: PromotionUpdateComponent},
   {path: 'user-update', component: UserUpdateComponent},
   {path: 'order-details', component: OrderDetailsComponent},
-  {path: 'comment-details', component: CommentDetailsComponent}
+  {path: 'comment-details', component: CommentDetailsComponent},
+  {path: 'orders-all', component: OrdersAllComponent},
+  {path: 'comments-all', component: CommentsAllComponent},
+  {path: 'promotions-all', component: PromotionsAllComponent}
 ];
 
 @NgModule({
