@@ -1,0 +1,22 @@
+<div>
+  <section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <div
+              *ngFor = "let comment of comments"
+            >
+              <h5>{{comment.topic}}</h5>
+              <p>{{comment.description}}</p>
+
+              <a [routerLink]="['/comment/delete', comment.id]" class="btn btn-info">Delete comment</a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
