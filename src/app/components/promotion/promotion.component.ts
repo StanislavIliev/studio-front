@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Promotion} from '../../models/promotion';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PromotionService} from '../../services/promotionService';
 import {Router} from '@angular/router';
 
@@ -21,9 +21,9 @@ export class PromotionComponent implements OnInit {
 
   ngOnInit(): void {
     this.promotionForm = new FormGroup({
-      name: new FormControl(null),
-      description: new FormControl(null),
-      price: new FormControl(null)
+      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      price: new FormControl('' , [Validators.required, Validators.pattern('[0-9]+')])
     });
   }
 
@@ -43,7 +43,7 @@ export class PromotionComponent implements OnInit {
         this.promotion = response;
         console.log(this.promotion);
       });
-    this.router.navigate(['/login']);
+    this.router.navigate(['/promotions-all']);
   }
 
 }

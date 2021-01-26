@@ -1,5 +1,5 @@
 import { Component, OnInit , OnDestroy  } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, NgForm} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, NgForm, FormControl} from '@angular/forms';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../models/user';
@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+
   loginForm: FormGroup;
   public logged: boolean;
   private subscriptions: Subscription[] = [];
@@ -31,9 +32,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(3)]],
+    this.loginForm = new FormGroup({
+      username: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
   }
 

@@ -36,13 +36,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      username: new FormControl(null),
-      email: new FormControl(null),
-      password: new FormControl(null),
-      confirmPassword: new FormControl(null),
-      firstName: new FormControl(null),
-      lastName: new FormControl(null),
-      phoneNumber: new FormControl(null)
+      username: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      email: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      firstName: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z]+')]),
+      lastName: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z]+')]),
+      phoneNumber: new FormControl('' , [Validators.required, Validators.pattern('[+,0-9]+')])
     });
    }
   onSubmit(): any {

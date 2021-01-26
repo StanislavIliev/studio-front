@@ -7,13 +7,23 @@
             <div
               *ngFor = "let promotion of promotions"
             >
-              <h5>{{promotion.name}}</h5>
-              <p>{{promotion.description}}</p>
-              <p>{{promotion.price}}</p>
+<!--              <h5>{{promotion.name}}</h5>-->
+<!--              <p>{{promotion.description}}</p>-->
+<!--              <p>{{promotion.price}}</p>-->
+
+              <div class="card-body">
+                <h5 class="card-title">{{ promotion.name }}</h5>
+                <p class="card-text">
+                  {{ promotion.description }}
+                </p>
+                <p class="card-text">
+                  <small class="text-muted" pattern="\d {2,2}" data-format="#.00">{{ promotion.price }} £ </small>
+              </div>
 
               <a [routerLink]="['/promotion/delete', promotion.id]" class="btn btn-info">Delete promotion</a>
-
-
+<!--              <button (click)="updatePromotionById(promotion.id)" class="btn btn-danger mr-2">Update promotion</button>-->
+<!--              <button (click)="deletePromotionById(promotion.id)" class="btn btn-info ml-auto">Delete promotion</button>-->
+              <hr>
             </div>
           </div>
         </div>

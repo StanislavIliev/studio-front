@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Comment} from '../../models/comment';
 import {CommentService} from '../../services/commentService';
 import { Router } from '@angular/router';
@@ -24,8 +24,8 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.addCommentForm = new FormGroup({
-      topic: new FormControl(null),
-      description: new FormControl(null),
+      topic: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9,.]+')]),
       user: new FormControl(this.user)
     });
   }
@@ -37,7 +37,7 @@ export class CommentComponent implements OnInit {
       .subscribe((response) => {
         this.comment = response;
         console.log(this.comment);
-        this.router.navigate(['/']);
+        this.router.navigate(['/comments-all']);
       });
   }
 

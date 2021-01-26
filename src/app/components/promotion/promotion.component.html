@@ -9,14 +9,35 @@
                 <div class="form-group">
                   <label for="name">Name</label>
                   <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <div
+                    *ngIf="promotionForm.get('name').invalid && promotionForm.get('name').touched">
+                    <small *ngIf="promotionForm.get('name').errors?.required"
+                           class="alert alert-danger form-text text-center">Required!</small>
+                    <small *ngIf="promotionForm.get('name').hasError('pattern')"
+                           class="alert alert-danger form-text text-center">Incorrect name!</small>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="description">Description</label>
                   <input type="text" class="form-control" placeholder="description" formControlName="description">
+                  <div
+                    *ngIf="promotionForm.get('description').invalid && promotionForm.get('description').touched">
+                    <small *ngIf="promotionForm.get('description').errors?.required"
+                           class="alert alert-danger form-text text-center">Required!</small>
+                    <small *ngIf="promotionForm.get('description').hasError('pattern')"
+                           class="alert alert-danger form-text text-center">Incorrect description!</small>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="price">Price</label>
                   <input type="number" min= "1" class="form-control" placeholder="price" formControlName="price">
+                  <div
+                    *ngIf="promotionForm.get('price').invalid && promotionForm.get('price').touched">
+                    <small *ngIf="promotionForm.get('price').errors?.required"
+                           class="alert alert-danger form-text text-center">Required!</small>
+                    <small *ngIf="promotionForm.get('price').hasError('pattern')"
+                           class="alert alert-danger form-text text-center">Incorrect price!</small>
+                  </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
               </form>

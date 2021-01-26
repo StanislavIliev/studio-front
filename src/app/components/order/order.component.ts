@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Order} from '../../models/order';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { OrderService } from '../../services/orderService';
 import { User } from '../../models/user';
 import {Router} from '@angular/router';
@@ -24,9 +24,9 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.addOrderForm = new FormGroup({
-      name: new FormControl(null),
-      description: new FormControl(null),
-      price: new FormControl(null),
+      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      price: new FormControl('' , [Validators.required, Validators.pattern('[0-9]+')]),
       manicure: new FormControl(null),
       user: new FormControl(this.user)
     });
@@ -39,7 +39,7 @@ export class OrderComponent implements OnInit {
       .subscribe((response) => {
         this.order = response;
         console.log(this.order);
-        this.router.navigate(['/']);
+        this.router.navigate(['/orders-all']);
       });
   }
 
