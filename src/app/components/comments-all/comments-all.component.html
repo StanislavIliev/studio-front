@@ -9,9 +9,10 @@
             >
               <h5>{{comment.topic}}</h5>
               <p>{{comment.description}}</p>
+<!--              <p> commented by {{comment.username.firstName}}</p>-->
 
               <a [routerLink]="['/comment/delete', comment.id]" class="btn btn-info">Delete comment</a>
-
+              <a href="../comment-update" class="btn btn-info">Update comment</a>
 
             </div>
           </div>

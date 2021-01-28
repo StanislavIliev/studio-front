@@ -122,8 +122,20 @@ export class AuthService {
     }
   }
 
+  requestReset(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/users/req-reset-password`, body);
+  }
+
+  newPassword(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/users/new-password`, body);
+  }
+
   handleError(error: HttpErrorResponse): void {
     console.log(error);
+  }
+
+  public ValidPasswordToken(): string {
+    return this.token;
   }
 }
 

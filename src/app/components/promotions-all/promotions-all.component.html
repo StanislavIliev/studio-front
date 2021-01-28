@@ -1,33 +1,30 @@
-<div>
-  <section id="cover" class="min-vh-100">
-    <div id="cover-caption">
-      <div class="container">
-        <div class="row text-white">
-          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <div
-              *ngFor = "let promotion of promotions"
-            >
-<!--              <h5>{{promotion.name}}</h5>-->
-<!--              <p>{{promotion.description}}</p>-->
-<!--              <p>{{promotion.price}}</p>-->
+ <div class="ms-content-wrapper">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                     <div *ngFor = "let promotion of promotions">
 
-              <div class="card-body">
-                <h5 class="card-title">{{ promotion.name }}</h5>
-                <p class="card-text">
-                  {{ promotion.description }}
-                </p>
-                <p class="card-text">
-                  <small class="text-muted" pattern="\d {2,2}" data-format="#.00">{{ promotion.price }} £ </small>
+                    <div class="ms-card">
+                      <div class="ms-card-img">
+<!--                        <img src="../../../assets/img/143393112_3837731659626213_2140652174899024548_n.jpg"-->
+<!--                             alt="card_img">-->
+                      </div>
+                      <div class="ms-card-body">
+                        <div class="ms-panel-custom">
+                          <h4>{{ promotion.name }}</h4>
+                          <span class="ms-text-primary">{{ promotion.price }} £ </span>
+                        </div>
+
+                        <p>{{ promotion.description }}</p>
+                        <div class="ms-panel-custom">
+                          <button  href="../promotion-update" class="btn btn-primary mr-2  ms-custom-btn">Update</button>
+                          <button href="../promotion" class="btn btn-dark ms-custom-btn">Delete</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+                </div>
               </div>
 
-              <a [routerLink]="['/promotion/delete', promotion.id]" class="btn btn-info">Delete promotion</a>
-<!--              <button (click)="updatePromotionById(promotion.id)" class="btn btn-danger mr-2">Update promotion</button>-->
-<!--              <button (click)="deletePromotionById(promotion.id)" class="btn btn-info ml-auto">Delete promotion</button>-->
-              <hr>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>

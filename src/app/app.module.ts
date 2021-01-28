@@ -26,6 +26,8 @@ import { PromotionDetailsComponent } from './components/promotion-details/promot
 import { OrdersAllComponent } from './components/orders-all/orders-all.component';
 import { PromotionsAllComponent } from './components/promotions-all/promotions-all.component';
 import { CommentsAllComponent } from './components/comments-all/comments-all.component';
+import { RequestResetComponent } from './components/request-reset/request-reset.component';
+import { ResponseResetComponent } from './components/response-reset/response-reset.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { CommentsAllComponent } from './components/comments-all/comments-all.com
     PromotionDetailsComponent,
     OrdersAllComponent,
     PromotionsAllComponent,
-    CommentsAllComponent
+    CommentsAllComponent,
+    RequestResetComponent,
+    ResponseResetComponent
   ],
   imports: [
     BrowserModule,

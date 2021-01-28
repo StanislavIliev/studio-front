@@ -16,6 +16,8 @@ import {CommentDetailsComponent} from './components/comment-details/comment-deta
 import {OrdersAllComponent} from './components/orders-all/orders-all.component';
 import {PromotionsAllComponent} from './components/promotions-all/promotions-all.component';
 import {CommentsAllComponent} from './components/comments-all/comments-all.component';
+import {ResponseResetComponent} from './components/response-reset/response-reset.component';
+import {RequestResetComponent} from './components/request-reset/request-reset.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -33,7 +35,9 @@ const routes: Routes = [
   {path: 'comment-details', component: CommentDetailsComponent},
   {path: 'orders-all', component: OrdersAllComponent},
   {path: 'comments-all', component: CommentsAllComponent},
-  {path: 'promotions-all', component: PromotionsAllComponent}
+  {path: 'promotions-all', component: PromotionsAllComponent},
+  {path: 'response-reset', component: ResponseResetComponent},
+  {path: 'request-reset', component: RequestResetComponent}
 ];
 
 @NgModule({

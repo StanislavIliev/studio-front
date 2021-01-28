@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Promotion} from '../../models/promotion';
 import {PromotionService} from '../../services/promotionService';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-promotion-update',
@@ -13,6 +15,7 @@ export class PromotionUpdateComponent implements OnInit {
   promotion: Promotion = new Promotion();
 
   constructor(
+    private router: Router,
     private promotionService: PromotionService
   ) { }
 
@@ -34,5 +37,15 @@ export class PromotionUpdateComponent implements OnInit {
         console.log(this.promotion);
       });
   }
+
+  deletePromotionById(promotion: Promotion): void {
+
+    this.promotionService.deletePromotionById(this.promotion)
+      .subscribe((resp) => { console.log(resp); });
+
+    this.router.navigate(['/promotions-all']);
+  }
+
+
 
 }
