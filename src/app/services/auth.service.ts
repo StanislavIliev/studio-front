@@ -122,19 +122,19 @@ export class AuthService {
     }
   }
 
-  requestReset(body): Observable<any> {
-    return this.http.post(`http://localhost:8080/users/req-reset-password`, body);
+  requestReset(email: string): Observable<any> {
+    return this.http.post(`http://localhost:8080/users/req-reset-password`, email);
   }
 
-  newPassword(body): Observable<any> {
-    return this.http.post(`http://localhost:8080/users/new-password`, body);
+  setNewPassword(body): Observable<any> {
+    return this.http.post(`http://localhost:8080/users/reset-password`, body);
   }
 
   handleError(error: HttpErrorResponse): void {
     console.log(error);
   }
 
-  public ValidPasswordToken(): string {
+  public validPasswordToken(): string {
     return this.token;
   }
 }

@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ResponseResetComponent implements OnInit {
 
-  ResponseResetForm: FormGroup;
+  responseResetForm: FormGroup;
   errorMessage: string;
   successMessage: string;
   resetToken: null;
@@ -45,8 +45,8 @@ export class ResponseResetComponent implements OnInit {
   //   );
   // }
 
-  Init(): any {
-    this.ResponseResetForm = this.fb.group(
+   onInit(): any {
+    this.responseResetForm = this.fb.group(
       {
         resettoken: [this.resetToken],
         newPassword: ['', [Validators.required, Validators.minLength(4)]],
@@ -55,7 +55,7 @@ export class ResponseResetComponent implements OnInit {
     );
   }
 
-  Validate(passwordFormGroup: FormGroup): any {
+  validate(passwordFormGroup: FormGroup): any {
     const new_password = passwordFormGroup.controls.newPassword.value;
     const confirm_password = passwordFormGroup.controls.confirmPassword.value;
 
@@ -73,13 +73,13 @@ export class ResponseResetComponent implements OnInit {
   }
 
 
-  ResetPassword(form): any {
+  resetPassword(form): any {
     console.log(form.get('confirmPassword'));
     if (form.valid) {
       this.IsResetFormValid = true;
-      this.authService.newPassword(this.ResponseResetForm.value).subscribe(
+      this.authService.setNewPassword(this.responseResetForm.value).subscribe(
         data => {
-          this.ResponseResetForm.reset();
+          this.responseResetForm.reset();
           this.successMessage = data.message;
           setTimeout(() => {
             this.successMessage = null;

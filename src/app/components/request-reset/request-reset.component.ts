@@ -11,7 +11,7 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./request-reset.component.scss']
 })
 export class RequestResetComponent implements OnInit {
-  RequestResetForm: FormGroup;
+  requestResetForm: FormGroup;
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
@@ -23,18 +23,18 @@ export class RequestResetComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.RequestResetForm = new FormGroup({
-      '': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
+    this.requestResetForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
     });
   }
 
-  RequestResetUser(form): any {
+  requestResetUser(form): any {
     console.log(form);
     if (form.valid) {
       this.IsvalidForm = true;
-      this.authService.requestReset(this.RequestResetForm.value).subscribe(
+      this.authService.requestReset(this.requestResetForm.value).subscribe(
         data => {
-          this.RequestResetForm.reset();
+          this.requestResetForm.reset();
           this.successMessage = 'Reset password link send to email sucessfully.';
           setTimeout(() => {
             this.successMessage = null;
