@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'orders-all', component: OrdersAllComponent},
   {path: 'comments-all', component: CommentsAllComponent},
   {path: 'promotions-all', component: PromotionsAllComponent},
-  {path: 'response-reset', component: ResponseResetComponent},
+  {path: 'response-reset/:?', component: ResponseResetComponent},
   {path: 'request-reset', component: RequestResetComponent}
 ];
 

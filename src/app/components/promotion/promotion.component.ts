@@ -21,8 +21,8 @@ export class PromotionComponent implements OnInit {
 
   ngOnInit(): void {
     this.promotionForm = new FormGroup({
-      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
-      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
       price: new FormControl('' , [Validators.required, Validators.pattern('[0-9]+')])
     });
   }

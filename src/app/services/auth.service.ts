@@ -126,8 +126,8 @@ export class AuthService {
     return this.http.post(`http://localhost:8080/users/req-reset-password`, email);
   }
 
-  setNewPassword(body): Observable<any> {
-    return this.http.post(`http://localhost:8080/users/reset-password`, body);
+  setNewPassword(formData: FormData): Observable<any> {
+    return this.http.post(`http://localhost:8080/users/reset-password`, formData);
   }
 
   handleError(error: HttpErrorResponse): void {

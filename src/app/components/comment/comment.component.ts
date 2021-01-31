@@ -24,8 +24,8 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.addCommentForm = new FormGroup({
-      topic: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
-      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9,.]+')]),
+      topic: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9,. ]+')]),
       user: new FormControl(this.user)
     });
   }

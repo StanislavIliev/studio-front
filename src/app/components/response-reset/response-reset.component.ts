@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -27,54 +27,50 @@ export class ResponseResetComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.resetToken = params.token;
       console.log(this.resetToken);
-      // this.VerifyToken();
     });
   }
 
-  ngOnInit(): void {
-  }
-  //
-  // VerifyToken(): any {
-  //   this.authService.ValidPasswordToken({ resettoken: this.resetToken }).subscribe(
-  //     data => {
-  //       this.CurrentState = 'Verified';
-  //     },
-  //     err => {
-  //       this.CurrentState = 'NotVerified';
-  //     }
-  //   );
-  // }
 
-   onInit(): any {
-    this.responseResetForm = this.fb.group(
+   ngOnInit(): any {
+    this.responseResetForm = new FormGroup(
       {
-        resettoken: [this.resetToken],
-        newPassword: ['', [Validators.required, Validators.minLength(4)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(4)]]
+        newPassword: new FormControl('', [Validators.required, Validators.minLength(4)]),
+        confirmPassword: new FormControl('', [Validators.required, Validators.minLength(4)])
       }
     );
   }
 
-  validate(passwordFormGroup: FormGroup): any {
-    const new_password = passwordFormGroup.controls.newPassword.value;
-    const confirm_password = passwordFormGroup.controls.confirmPassword.value;
+  // validate(passwordFormGroup: FormGroup): any {
+  //   const new_password = passwordFormGroup.controls.newPassword.value;
+  //   const confirm_password = passwordFormGroup.controls.confirmPassword.value;
+  //
+  //   if (confirm_password.length <= 0) {
+  //     return null;
+  //   }
+  //
+  //   if (confirm_password !== new_password) {
+  //     return {
+  //       doesNotMatch: true
+  //     };
+  //   }
+  //
+  //   return null;
+  // }
 
-    if (confirm_password.length <= 0) {
-      return null;
-    }
 
-    if (confirm_password !== new_password) {
-      return {
-        doesNotMatch: true
-      };
-    }
-
-    return null;
-  }
-
-
-  resetPassword(form): any {
-    console.log(form.get('confirmPassword'));
+  resetPassword(): any {
+    const obj = {...this.responseResetForm.value};
+    console.log(obj);
+    const code = this.router.url.split('/').pop();
+    const formData = new FormData();
+    formData.append('password', this.responseResetForm.get('newPassword').value);
+    formData.append('token', code);
+    this.authService.setNewPassword(formData).
+      subscribe((resp) => {
+      console.log(resp);
+      this.router.navigate(['/login']);
+    });
+    /*console.log(form.get('confirmPassword'));
     if (form.valid) {
       this.IsResetFormValid = true;
       this.authService.setNewPassword(this.responseResetForm.value).subscribe(
@@ -83,7 +79,7 @@ export class ResponseResetComponent implements OnInit {
           this.successMessage = data.message;
           setTimeout(() => {
             this.successMessage = null;
-            this.router.navigate(['sign-in']);
+            this.router.navigate(['/login']);
           }, 3000);
         },
         err => {
@@ -92,6 +88,6 @@ export class ResponseResetComponent implements OnInit {
           }
         }
       );
-    } else { this.IsResetFormValid = false; }
+    } else { this.IsResetFormValid = false; }*/
   }
 }

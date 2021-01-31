@@ -24,8 +24,8 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.addOrderForm = new FormGroup({
-      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
-      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9]+')]),
+      name: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
+      description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
       price: new FormControl('' , [Validators.required, Validators.pattern('[0-9]+')]),
       manicure: new FormControl(null),
       user: new FormControl(this.user)
