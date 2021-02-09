@@ -28,7 +28,7 @@ export class ProcedureComponent implements OnInit {
       description: new FormControl('' , [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]),
       price: new FormControl(null),
       name: new FormControl(null),
-      date: new FormControl(null),
+      date: new FormControl(null, [ Validators.required]),
       user: new FormControl(this.user)
     });
   }
