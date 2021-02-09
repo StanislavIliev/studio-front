@@ -7,13 +7,12 @@
             <div
               *ngFor = "let order of orders"
             >
-              <h5>{{order.name}}</h5>
-              <p>{{order.description}}</p>
+              <h5>{{order.description}}</h5>
               <p>{{order.price}}</p>
 
 
               <a href="../order-update" class="btn btn-info">Update order</a>
-              <a href="../order" class="btn btn-info">Update order</a>
+              <a href="../order" class="btn btn-info">Delete order</a>
 
             </div>
           </div>

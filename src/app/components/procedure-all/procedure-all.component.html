@@ -1,0 +1,31 @@
+<section id="cover" class="min-vh-100">
+  <div id="cover-caption">
+    <div class="container">
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <div *ngFor = "let procedure of procedures">
+
+        <div class="ms-card">
+          <div class="ms-card-body">
+            <div class="ms-panel-custom">
+              <h4>{{ procedure.name }}</h4>
+              <span class="ms-text-primary">{{ procedure.price }} £ </span>
+            </div>
+            <p>{{ procedure.date }}</p>
+            <p>{{ procedure.description }}</p>
+            <div class="ms-panel-custom">
+              <button  href="../promotion-update" class="btn btn-primary mr-2  ms-custom-btn">Update</button>
+              <button href="../promotion" class="btn btn-dark ms-custom-btn">Delete</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    </div>
+    </div>
+</section>

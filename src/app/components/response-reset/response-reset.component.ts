@@ -40,22 +40,22 @@ export class ResponseResetComponent implements OnInit {
     );
   }
 
-  // validate(passwordFormGroup: FormGroup): any {
-  //   const new_password = passwordFormGroup.controls.newPassword.value;
-  //   const confirm_password = passwordFormGroup.controls.confirmPassword.value;
-  //
-  //   if (confirm_password.length <= 0) {
-  //     return null;
-  //   }
-  //
-  //   if (confirm_password !== new_password) {
-  //     return {
-  //       doesNotMatch: true
-  //     };
-  //   }
-  //
-  //   return null;
-  // }
+  validate(form: FormGroup): any {
+    const new_password = form.controls.newPassword.value;
+    const confirm_password = form.controls.confirmPassword.value;
+
+    if (confirm_password.length <= 0) {
+      return null;
+    }
+
+    if (confirm_password !== new_password) {
+      return {
+        doesNotMatch: true
+      };
+    }
+
+    return null;
+  }
 
 
   resetPassword(): any {
@@ -64,30 +64,11 @@ export class ResponseResetComponent implements OnInit {
     const code = this.router.url.split('/').pop();
     const formData = new FormData();
     formData.append('password', this.responseResetForm.get('newPassword').value);
-    formData.append('token', code);
+    formData.append('uniqueString', code);
     this.authService.setNewPassword(formData).
       subscribe((resp) => {
       console.log(resp);
       this.router.navigate(['/login']);
     });
-    /*console.log(form.get('confirmPassword'));
-    if (form.valid) {
-      this.IsResetFormValid = true;
-      this.authService.setNewPassword(this.responseResetForm.value).subscribe(
-        data => {
-          this.responseResetForm.reset();
-          this.successMessage = data.message;
-          setTimeout(() => {
-            this.successMessage = null;
-            this.router.navigate(['/login']);
-          }, 3000);
-        },
-        err => {
-          if (err.error.message) {
-            this.errorMessage = err.error.message;
-          }
-        }
-      );
-    } else { this.IsResetFormValid = false; }*/
   }
 }

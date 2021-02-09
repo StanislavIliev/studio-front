@@ -7,7 +7,7 @@ export class User {
   firstName?: string;
   lastName?: string;
   phoneNumber?: string;
-  token?: string;
+  uniqueString?: string;
 
   constructor(){
       this.username = '',
@@ -16,6 +16,6 @@ export class User {
       this.firstName = '',
       this.lastName = '',
       this.phoneNumber = '',
-      this.token = '';
+      this.uniqueString = '';
   }
 }

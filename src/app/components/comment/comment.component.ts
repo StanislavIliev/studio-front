@@ -4,7 +4,7 @@ import {Comment} from '../../models/comment';
 import {CommentService} from '../../services/commentService';
 import { Router } from '@angular/router';
 import {User} from '../../models/user';
-import { Token } from '../../models/token';
+import { UniqueString } from '../../models/UniqueString';
 
 @Component({
   selector: 'app-comment',

@@ -24,10 +24,9 @@ export class OrderUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateOrderForm = new FormGroup({
-      name: new FormControl(null),
       description: new FormControl(null),
-      price: new FormControl(null),
-      manicure: new FormControl(null),
+      procedure: new FormControl(null),
+      product: new FormControl(null),
       user: new FormControl(this.user)
     });
   }

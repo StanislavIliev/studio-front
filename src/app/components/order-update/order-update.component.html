@@ -7,28 +7,28 @@
             <div class="px-2">
               <form action="" [formGroup]="updateOrderForm" (submit)="updateOrder()" class="justify-content-center">
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" placeholder="name" formControlName="name">
-                </div>
-                <div class="form-group">
                   <label for="description">Description</label>
                   <input type="text" class="form-control" placeholder="description" formControlName="description">
                 </div>
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="number" min= "1" class="form-control" placeholder="price" formControlName="price">
-                </div>
 
                 <div class="form-group">
-                  <label for="manicure">Manicure Type</label>
-                  <select class="form-control" placeholder="manicure" formControlName="manicure">
+                  <label for="procedure">Procedure Type</label>
+                  <select class="form-control" placeholder="procedure" formControlName="procedure">
                     <option value="">SELECT</option>
                     <option value="MANICURE">MANICURE</option>
                     <option value="PEDICURE">PEDICURE</option>
-                    <option value="OILS AND FILES">OILS AND FILES</option>
                   </select>
-
                 </div>
+
+                <div class="form-group">
+                  <label for="product">Product</label>
+                  <select class="form-control" placeholder="product" formControlName="product">
+                    <option value="">SELECT</option>
+                    <option value="OIL">OIL</option>
+                    <option value="FILE">FILE</option>
+                  </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-lg">Update</button>
               </form>
             </div>

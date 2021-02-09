@@ -18,6 +18,11 @@ import {PromotionsAllComponent} from './components/promotions-all/promotions-all
 import {CommentsAllComponent} from './components/comments-all/comments-all.component';
 import {ResponseResetComponent} from './components/response-reset/response-reset.component';
 import {RequestResetComponent} from './components/request-reset/request-reset.component';
+import {CartComponent} from './components/cart/cart.component';
+import {ProductComponent} from './components/product/product.component';
+import {ProcedureComponent} from './components/procedure/procedure.component';
+import {ProcedureAllComponent} from './components/procedure-all/procedure-all.component';
+import {ProductAllComponent} from './components/product-all/product-all.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -37,7 +42,12 @@ const routes: Routes = [
   {path: 'comments-all', component: CommentsAllComponent},
   {path: 'promotions-all', component: PromotionsAllComponent},
   {path: 'response-reset/:?', component: ResponseResetComponent},
-  {path: 'request-reset', component: RequestResetComponent}
+  {path: 'request-reset', component: RequestResetComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'product', component: ProductComponent},
+  {path: 'procedure', component: ProcedureComponent},
+  {path: 'procedure-all', component: ProcedureAllComponent },
+  {path: 'product-all', component: ProductAllComponent},
 ];
 
 @NgModule({

@@ -7,17 +7,6 @@
             <div class="px-2">
               <form action="" [formGroup]="addOrderForm" (submit)="addOrder()" class="justify-content-center">
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" placeholder="name" formControlName="name">
-                  <div
-                    *ngIf="addOrderForm.get('name').invalid && addOrderForm.get('name').touched">
-                    <small *ngIf="addOrderForm.get('name').errors?.required"
-                           class="alert alert-danger form-text text-center">Required!</small>
-                    <small *ngIf="addOrderForm.get('name').hasError('pattern')"
-                           class="alert alert-danger form-text text-center">Incorrect name!</small>
-                  </div>
-                </div>
-                <div class="form-group">
                   <label for="description">Description</label>
                   <input type="text" class="form-control" placeholder="description" formControlName="description">
                   <div
@@ -28,27 +17,23 @@
                            class="alert alert-danger form-text text-center">Incorrect description!</small>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="number" min= "1" class="form-control" placeholder="price" formControlName="price">
-                  <div
-                    *ngIf="addOrderForm.get('price').invalid && addOrderForm.get('price').touched">
-                    <small *ngIf="addOrderForm.get('price').errors?.required"
-                           class="alert alert-danger form-text text-center">Required!</small>
-                    <small *ngIf="addOrderForm.get('price').hasError('pattern')"
-                           class="alert alert-danger form-text text-center">Incorrect price!</small>
-                  </div>
-                </div>
 
                 <div class="form-group">
-                  <label for="manicure">Manicure Type</label>
-                  <select class="form-control" placeholder="manicure" formControlName="manicure">
+                  <label for="procedure">Procedure Type</label>
+                  <select class="form-control" placeholder="procedure" formControlName="procedure">
                     <option value="">SELECT</option>
                     <option value="MANICURE">MANICURE</option>
                     <option value="PEDICURE">PEDICURE</option>
-                    <option value="OILS_AND_FILES">OILS AND FILES</option>
                   </select>
+                </div>
 
+                <div class="form-group">
+                  <label for="product">Product</label>
+                  <select class="form-control" placeholder="product" formControlName="product">
+                    <option value="">SELECT</option>
+                    <option value="OIL">OIL</option>
+                    <option value="FILE">FILE</option>
+                  </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
               </form>

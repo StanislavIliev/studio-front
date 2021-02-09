@@ -28,6 +28,11 @@ import { PromotionsAllComponent } from './components/promotions-all/promotions-a
 import { CommentsAllComponent } from './components/comments-all/comments-all.component';
 import { RequestResetComponent } from './components/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/response-reset/response-reset.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductComponent } from './components/product/product.component';
+import { ProcedureComponent } from './components/procedure/procedure.component';
+import { ProcedureAllComponent } from './components/procedure-all/procedure-all.component';
+import { ProductAllComponent } from './components/product-all/product-all.component';
 
 @NgModule({
   declarations: [
@@ -54,14 +59,19 @@ import { ResponseResetComponent } from './components/response-reset/response-res
     PromotionsAllComponent,
     CommentsAllComponent,
     RequestResetComponent,
-    ResponseResetComponent
+    ResponseResetComponent,
+    CartComponent,
+    ProductComponent,
+    ProcedureComponent,
+    ProcedureAllComponent,
+    ProductAllComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule, HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule, HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
