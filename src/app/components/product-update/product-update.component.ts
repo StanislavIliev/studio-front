@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../../models/product';
 import {User} from '../../models/user';
 import {ProductService} from '../../services/productService';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-update',
@@ -14,28 +14,27 @@ export class ProductUpdateComponent implements OnInit {
   updateProductForm: FormGroup;
   product: Product = new Product();
   user: User = JSON.parse(localStorage.getItem('user'));
+  private productId = '';
 
   constructor(
     private productService: ProductService ,
-    private router: Router
+    private router: Router,
+    private r: ActivatedRoute
   ) {
+    this.getProductById();
   }
 
 
   ngOnInit(): void {
-    this.updateProductForm = new FormGroup({
-      id: new FormControl(this.product.id),
-      description: new FormControl(''),
-      price: new FormControl(null),
-      name: new FormControl('')
-    });
   }
 
-  getProductById(id: string): void{
-    this.productService.getProductById(id)
+  getProductById(): void{
+    this.productId = this.r.snapshot.params.id;
+    this.productService.getProductById(this.productId)
       .subscribe((response) => {
         this.product = response;
         console.log(this.product);
+        this.parseProductInfo();
       });
   }
 
@@ -51,14 +50,14 @@ export class ProductUpdateComponent implements OnInit {
 
   updateProduct(): any {
     const updatedProduct = {...this.updateProductForm.value};
+    updatedProduct.id = this.product.id;
     console.log(updatedProduct);
     this.productService.updateProduct(updatedProduct)
       .subscribe((response) => {
         this.product = response;
-        this.parseProductInfo();
         console.log(this.product);
+        this.router.navigate(['/']);
       });
-    this.router.navigate(['/product-all']);
 
   }
 }

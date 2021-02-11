@@ -27,6 +27,7 @@ export class ProductService {
   }
 
   getProductById(id: string): Observable<Product>{
+
     return this.http.get(`http://localhost:8080/products/${id}`);
   }
 

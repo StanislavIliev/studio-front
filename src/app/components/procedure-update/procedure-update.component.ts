@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Procedure} from '../../models/procedure';
 import {User} from '../../models/user';
 import {ProcedureService} from '../../services/procedureService';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-procedure-update',
@@ -14,29 +14,27 @@ export class ProcedureUpdateComponent implements OnInit {
   updateProcedureForm: FormGroup;
   procedure: Procedure = new Procedure();
   user: User = JSON.parse(localStorage.getItem('user'));
+  private procedureId = '';
+
 
   constructor(
     private procedureService: ProcedureService ,
-    private router: Router
+    private router: Router,
+    private r: ActivatedRoute
   ) {
+    this.getProcedureById();
   }
 
   ngOnInit(): void {
-    this.updateProcedureForm = new FormGroup({
-      id: new FormControl(this.procedure.id),
-      description: new FormControl(''),
-      price: new FormControl(null),
-      name: new FormControl(null),
-      date: new FormControl(null, [ Validators.required]),
-      user: new FormControl(this.user)
-    });
   }
 
-  getProcedureById(id: string): void{
-    this.procedureService.getProcedureById(id)
+  getProcedureById(): void{
+    this.procedureId = this.r.snapshot.params.id;
+    this.procedureService.getProcedureById(this.procedureId)
       .subscribe((response) => {
         this.procedure = response;
         console.log(this.procedure);
+        this.parseProcedureInfo();
       });
   }
 
@@ -53,12 +51,13 @@ export class ProcedureUpdateComponent implements OnInit {
 
   updateProcedure(): any {
     const updatedProcedure = {...this.updateProcedureForm.value};
+    updatedProcedure.id = this.procedure.id;
     console.log(updatedProcedure);
     this.procedureService.updateProcedure(updatedProcedure)
       .subscribe((response) => {
         this.procedure = response;
-        this.parseProcedureInfo();
         console.log(this.procedure);
+        this.router.navigate(['/']);
       });
-}
+  }
 }
