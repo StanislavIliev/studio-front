@@ -15,9 +15,13 @@
 
             <p>{{ product.description }}</p>
             <div class="ms-panel-custom">
-              <button  href="../promotion-update" class="btn btn-primary mr-2  ms-custom-btn">Update</button>
-              <button href="../promotion" class="btn btn-dark ms-custom-btn">Delete</button>
+              <a [routerLink]="['/product-update',product.id]" class="btn btn-primary mr-2  ms-custom-btn">Update</a>
+              <button (click)="deleteProductById(product)" class="btn btn-danger mr-2">Delete</button>
             </div>
+            <div>
+              <button (click)="addProductToCart(product)" class="btn btn-primary mr-2">Add to Cart</button>
+            </div>
+
 
           </div>
         </div>

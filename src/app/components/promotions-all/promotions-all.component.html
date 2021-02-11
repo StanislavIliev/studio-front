@@ -17,7 +17,7 @@
                         <p>{{ promotion.description }}</p>
                         <div class="ms-panel-custom">
                           <button  href="../promotion-update" class="btn btn-primary mr-2  ms-custom-btn">Update</button>
-                          <button href="../promotion" class="btn btn-dark ms-custom-btn">Delete</button>
+                          <button (click)="deletePromotionById(promotion)" class="btn btn-danger mr-2">Delete</button>
                         </div>
 
                       </div>

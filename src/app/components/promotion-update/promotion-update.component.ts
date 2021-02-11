@@ -37,15 +37,4 @@ export class PromotionUpdateComponent implements OnInit {
         console.log(this.promotion);
       });
   }
-
-  deletePromotionById(promotion: Promotion): void {
-
-    this.promotionService.deletePromotionById(this.promotion)
-      .subscribe((resp) => { console.log(resp); });
-
-    this.router.navigate(['/promotions-all']);
-  }
-
-
-
 }

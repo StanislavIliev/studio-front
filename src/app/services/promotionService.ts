@@ -15,7 +15,7 @@ export class PromotionService {
     return this.http.get<Promotion[]>('http://localhost:8080/promotions/all');
   }
 
-  public addPromotion(promotion: Promotion): Observable<Promotion> {
+  addPromotion(promotion: Promotion): Observable<Promotion> {
     return this.http.post<Promotion>(`http://localhost:8080/promotions/add`, promotion);
   }
 
@@ -27,7 +27,7 @@ export class PromotionService {
     return this.http.post(`http://localhost:8080/promotions/delete/`, promotion);
   }
 
-  public updatePromotion(promotion: Promotion): Observable<Promotion> {
+  updatePromotion(promotion: Promotion): Observable<Promotion> {
     return this.http.post<Promotion>(`http://localhost:8080/promotions/update`, promotion);
   }
 }

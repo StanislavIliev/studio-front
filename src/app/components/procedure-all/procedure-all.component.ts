@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Procedure} from '../../models/procedure';
 import {ProcedureService} from '../../services/procedureService';
+import {AuthService} from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-procedure-all',
@@ -14,6 +16,7 @@ export class ProcedureAllComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private authService: AuthService,
     private procedureService: ProcedureService) { }
 
   ngOnInit(): void {
@@ -23,4 +26,21 @@ export class ProcedureAllComponent implements OnInit {
     this.router.navigate(['/procedure-all']);
   }
 
+  deleteProcedureById(procedure: Procedure): void {
+
+    this.procedureService.deleteProcedureById(procedure)
+      .subscribe((resp) => { console.log(resp); });
+
+    this.router.navigate(['/procedure-all']);
+  }
+
+  addProcedureToCart(procedure: Procedure): void{
+    const procedureAndUserId = {
+      userId:  this.authService.getUserIdFromLocalCache(),
+      procedureId: procedure.id
+    };
+    this.procedureService.addProcedureToCart(procedureAndUserId).
+    subscribe((resp) => {console.log(resp); });
+    this.router.navigate(['/procedure-all']);
+  }
 }

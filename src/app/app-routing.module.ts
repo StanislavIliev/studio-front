@@ -11,6 +11,8 @@ import {OrderUpdateComponent} from './components/order-update/order-update.compo
 import {PromotionUpdateComponent} from './components/promotion-update/promotion-update.component';
 import {CommentUpdateComponent} from './components/comment-update/comment-update.component';
 import {UserUpdateComponent} from './components/user-update/user-update.component';
+import {ProductUpdateComponent} from './components/product-update/product-update.component';
+import {ProcedureUpdateComponent} from './components/procedure-update/procedure-update.component';
 import {OrderDetailsComponent} from './components/order-details/order-details.component';
 import {CommentDetailsComponent} from './components/comment-details/comment-details.component';
 import {OrdersAllComponent} from './components/orders-all/orders-all.component';
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'order-update', component: OrderUpdateComponent},
   {path: 'promotion-update', component: PromotionUpdateComponent},
   {path: 'user-update', component: UserUpdateComponent},
+  {path: 'procedure-update/:', component: ProcedureUpdateComponent},
+  {path: 'product-update/:?', component: ProductUpdateComponent},
   {path: 'order-details', component: OrderDetailsComponent},
   {path: 'comment-details', component: CommentDetailsComponent},
   {path: 'orders-all', component: OrdersAllComponent},

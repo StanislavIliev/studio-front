@@ -33,6 +33,8 @@ import { ProductComponent } from './components/product/product.component';
 import { ProcedureComponent } from './components/procedure/procedure.component';
 import { ProcedureAllComponent } from './components/procedure-all/procedure-all.component';
 import { ProductAllComponent } from './components/product-all/product-all.component';
+import { ProcedureUpdateComponent } from './components/procedure-update/procedure-update.component';
+import { ProductUpdateComponent } from './components/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { ProductAllComponent } from './components/product-all/product-all.compon
     ProductComponent,
     ProcedureComponent,
     ProcedureAllComponent,
-    ProductAllComponent
+    ProductAllComponent,
+    ProcedureUpdateComponent,
+    ProductUpdateComponent
   ],
     imports: [
         BrowserModule,

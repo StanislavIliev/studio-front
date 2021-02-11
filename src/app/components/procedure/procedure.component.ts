@@ -17,7 +17,8 @@ export class ProcedureComponent implements OnInit {
   addProcedureForm: FormGroup;
   procedure: Procedure = new Procedure();
   user: User = JSON.parse(localStorage.getItem('user'));
-
+  startDate = new Date(2021, 2, 9);
+  endDate = new Date(2021, 2, 16, 0, 0, 0, 0);
   constructor(
     private router: Router,
     private procedureService: ProcedureService

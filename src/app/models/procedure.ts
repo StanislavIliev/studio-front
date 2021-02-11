@@ -1,6 +1,6 @@
 
 export class Procedure {
-  id?: number;
+  id?: string;
   name?: string;
   description?: string;
   price?: number;

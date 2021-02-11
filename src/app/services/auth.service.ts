@@ -58,6 +58,10 @@ export class AuthService {
    return this.currentUserSubject.value;
   }
 
+  public getUserIdFromLocalCache(): string {
+    return JSON.parse(localStorage.getItem('user')).id;
+  }
+
   public logIn(user: User): Observable<HttpResponse<User>> {
     this.token = null;
     this.loggedUser = null;

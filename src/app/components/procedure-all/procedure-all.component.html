@@ -14,9 +14,13 @@
             </div>
             <p>{{ procedure.date }}</p>
             <p>{{ procedure.description }}</p>
+
             <div class="ms-panel-custom">
-              <button  href="../promotion-update" class="btn btn-primary mr-2  ms-custom-btn">Update</button>
-              <button href="../promotion" class="btn btn-dark ms-custom-btn">Delete</button>
+              <a [routerLink]="['/procedure-update',procedure.id]" class="btn btn-primary mr-2  ms-custom-btn">Update</a>
+              <button (click)="deleteProcedureById(procedure)" class="btn btn-danger mr-2">Delete</button>
+            </div>
+            <div>
+              <button (click)="addProcedureToCart(procedure)" class="btn btn-primary mr-2">Add to Cart</button>
             </div>
 
           </div>

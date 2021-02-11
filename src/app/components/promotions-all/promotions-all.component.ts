@@ -22,4 +22,12 @@ export class PromotionsAllComponent implements OnInit {
     });
     this.router.navigate(['/promotions-all']);
   }
+
+  deletePromotionById(promotion: Promotion): void {
+
+    this.promotionService.deletePromotionById(promotion)
+      .subscribe((resp) => { console.log(resp); });
+
+    this.router.navigate(['/promotions-all']);
+  }
 }

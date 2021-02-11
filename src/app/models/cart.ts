@@ -2,7 +2,7 @@ import {Product} from './product';
 import {Procedure} from './procedure';
 
 export class Cart {
-  id?: number;
+  id?: string;
   procedure?: Procedure;
   product?: Product;
 

@@ -1,7 +1,7 @@
 import {User} from './user';
 
 export class Comment {
-  id?: number;
+  id?: string;
   topic?: string;
   description?: string;
   username?: User;
