@@ -5,6 +5,7 @@ import { CartService } from '../../services/cartService';
 import {HttpClient} from '@angular/common/http';
 import { Cart } from '../../models/cart';
 import {Product} from '../../models/product';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +14,7 @@ import {Product} from '../../models/product';
 })
 export class CartComponent implements OnInit {
    carts: Cart[] = [];
+   user: User = JSON.parse(localStorage.getItem('user'));
 
   constructor(private cartService: CartService,
               private authService: AuthService,
@@ -27,7 +29,6 @@ export class CartComponent implements OnInit {
       userId: this.authService.getUserIdFromLocalCache(),
       product: product.id
     };
-
     this.cartService.deleteProductFromCart(productAndUserId)
       .subscribe((resp) => {
         console.log(resp);

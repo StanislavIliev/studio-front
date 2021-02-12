@@ -7,7 +7,5 @@ export class Cart {
   product?: Product;
 
   constructor(){
-      this.procedure = null,
-      this.product = null;
   }
 }
