@@ -4,24 +4,32 @@
       <div class="row mt-5">
         <div class="col-lg-9">
           <div class="row shop-listing">
-            <table class="table shop-table" *ngIf="carts">
+            <table class="table shop-table" *ngIf="cart.products">
               <tr>
                 <th class="b-0">Name</th>
+                <th class="b-0">Description</th>
                 <th class="b-0">Price</th>
-                <th class="b-0">Quantity</th>
-                <th class="b-0 text-right">Total Price</th>
+                <th class="b-0 text-right">Date</th>
               </tr>
-              <tr *ngFor="let item of carts">
-                <td>{{ item.procedure.name }}</td>
-                <td>{{ item.procedure.price }}</td>
+              <tr *ngFor="let product of cart.products">
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
                 <td class="text-right">
-                  <h5 class="font-medium m-b-30">{{ item.procedure.price }}</h5>
+                  <h5 class="font-medium m-b-30">{{ product.price }}</h5>
                 </td>
+              </tr>
+              <tr *ngFor="let procedure of cart.procedures">
+                <td>{{ procedure.name }}</td>
+                <td>{{ procedure.description }}</td>
+                <td class="text-right">
+                  <h5 class="font-medium m-b-30">{{ procedure.price }}</h5>
+                </td>
+                <td> {{ procedure.date }}</td>
               </tr>
               <tr>
                 <td colspan="3" align="right">Subtotal :{{ 200 }}</td>
                 <td colspan="4" align="right">
-                  <button class="btn btn-danger" (click)="_emptyCart()">Empty Cart</button>
+                  <button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button>
                 </td>
               </tr>
             </table>

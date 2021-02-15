@@ -4,9 +4,11 @@
       <div class="container">
         <div class="row text-white">
           <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <div
-              *ngFor = "let comment of comments"
-            >
+
+
+              <div class="col-md-4"
+                   *ngFor = "let comment of comments">
+
               <h5>{{comment.topic}}</h5>
               <p>{{comment.description}}</p>
 <!--              <p> commented by {{comment.username.firstName}}</p>-->

@@ -3,9 +3,11 @@ import {Procedure} from './procedure';
 
 export class Cart {
   id?: string;
-  procedure?: Procedure;
-  product?: Product;
+  procedures?: Procedure [];
+  products?: Product [];
 
   constructor(){
+    this.procedures = null,
+      this.products = null;
   }
 }

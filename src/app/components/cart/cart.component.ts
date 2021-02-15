@@ -13,16 +13,28 @@ import {User} from '../../models/user';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-   carts: Cart[] = [];
-   user: User = JSON.parse(localStorage.getItem('user'));
 
-  constructor(private cartService: CartService,
-              private authService: AuthService,
-              private http: HttpClient,
-              private router: Router) { }
+   user: User = JSON.parse(localStorage.getItem('user'));
+   cart: Cart = new Cart();
+
+   constructor(private cartService: CartService,
+               private authService: AuthService,
+               private http: HttpClient,
+               private router: Router) {
+     this.getCartByUserId();
+  }
 
   ngOnInit(): void {
     }
+
+  getCartByUserId(): void{
+     const userId = this.user.id;
+     this.cartService.getCart(userId)
+      .subscribe((response) => {
+        this.cart = response;
+        console.log(this.cart);
+      });
+  }
 
   deleteProductFromCart(product: Product ): void {
     const productAndUserId = {
@@ -34,6 +46,17 @@ export class CartComponent implements OnInit {
         console.log(resp);
       });
     this.router.navigate(['/cart']);
+  }
+
+  emptyCart(): void {
+    const productAndUserId = {
+      userId: this.authService.getUserIdFromLocalCache(),
+      product: null
+    };
+    this.cartService.deleteProductFromCart(productAndUserId)
+      .subscribe((resp) => {
+        console.log(resp);
+      });
   }
 
   }
