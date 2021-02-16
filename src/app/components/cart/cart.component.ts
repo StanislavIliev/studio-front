@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import { Cart } from '../../models/cart';
 import {Product} from '../../models/product';
 import {User} from '../../models/user';
+import {Procedure} from '../../models/procedure';
 
 @Component({
   selector: 'app-cart',
@@ -36,22 +37,35 @@ export class CartComponent implements OnInit {
       });
   }
 
-  deleteProductFromCart(product: Product ): void {
-    const productAndUserId = {
-      userId: this.authService.getUserIdFromLocalCache(),
-      product: product.id
+  deleteProcedureFromCart(procedure: Procedure): void {
+    const procedureAndUserId = {
+      userId: this.user.id,
+      itemId: procedure.id
     };
-    this.cartService.deleteProductFromCart(productAndUserId)
+    this.cartService.deleteProcedureFromCart(procedureAndUserId)
       .subscribe((resp) => {
         console.log(resp);
       });
     this.router.navigate(['/cart']);
   }
 
+  deleteProductFromCart(product: Product ): void {
+    const productAndUserId = {
+      userId: this.user.id,
+      itemId: product.id
+    };
+    this.cartService.deleteProductFromCart(productAndUserId)
+      .subscribe((resp) => {
+        console.log(resp);
+      });
+
+    this.router.navigate(['/cart']);
+  }
+
   emptyCart(): void {
     const productAndUserId = {
-      userId: this.authService.getUserIdFromLocalCache(),
-      product: null
+      userId: this.user.id,
+      itemId: null
     };
     this.cartService.deleteProductFromCart(productAndUserId)
       .subscribe((resp) => {
