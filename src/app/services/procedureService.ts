@@ -3,8 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Procedure} from '../models/procedure';
 import {ProcedureAndUserId} from '../models/procedureAndUserId';
-import {Product} from '../models/product';
-import {Order} from '../models/order';
+
 
 @Injectable({
   providedIn: 'root'

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { autoLogin } from './auth.module/state/auth.actions';
 import { AppState } from './store/app.state';
 import { getErrorMessage, getLoading } from './store/Shared/shared.selector';
-import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +16,7 @@ export class AppComponent implements OnInit{
   showLoading: Observable<boolean>;
   errorMessage: Observable<string>;
   constructor(
-    private store: Store<AppState> ,
-    private notifier: NotifierService
+    private store: Store<AppState>
     ){
   }
   ngOnInit(): void {

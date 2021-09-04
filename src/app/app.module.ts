@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -10,7 +9,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactComponent } from './components/contact/contact.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
-import { AlertComponent } from './alert/alert.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { OrderUpdateComponent } from './components/order-update/order-update.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
@@ -31,7 +29,6 @@ import { ProductModule } from './product.module/product.module';
     HomePageComponent,
     ContactComponent,
     OrderComponent,
-    AlertComponent,
     OrderUpdateComponent,
     UserUpdateComponent,
     OrderDetailsComponent,
