@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect , ofType } from "@ngrx/effects";
-import { autoLogin, autoLogout, loginStart, loginSuccess, registerStart, registerSuccess, resetPaswordFail, resetPaswordStart, resetPaswordSuccess } from "./auth.actions";
+import { autoLogin, autoLogout, loginStart, loginSuccess, registerStart, registerSuccess, responsePasswordFail, responsePasswordStart, responsePasswordSuccess } from "./auth.actions";
 import { AuthService } from '../../services/auth.service';
 import { catchError, exhaustMap , map ,mergeMap,tap} from 'rxjs/operators';
 import { Store } from "@ngrx/store";
@@ -95,21 +95,21 @@ autoLgout$ = createEffect(() =>{
 
 requestEmailPassworReset$ = createEffect(() => {
   return this.actions$.pipe(
-    ofType(resetPaswordStart),
+    ofType(responsePasswordStart),
     exhaustMap((action) => {
       const rp: AuthPasswordEmail = {
         pass: action.requestType,
         email: action.email,
       };
-      return this.authService.sendMailPasswordReset(rp).pipe(
+      return this.authService.sendMailPassword(rp).pipe(
         map(
           (response) => {
             this.router.navigate(['/']);
             this.notifier.notify('success','You have successfully change your password.');
-            return resetPaswordSuccess({message: 'You have successfully change your password.'});
+            return responsePasswordSuccess({message: 'You have successfully change your password.'});
           },
           (err) => {
-            return resetPaswordFail({message: 'Password reset failed!'});
+            return responsePasswordFail({message: 'Password reset failed!'});
           }
         )
       );
