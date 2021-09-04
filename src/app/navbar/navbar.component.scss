@@ -1,0 +1,59 @@
+.navbar,
+.dropdown-procedure,
+.dropdown-product{
+    background-color: rgb(91, 3, 109);
+    padding: 0.4rem 0;
+    text-align: center;
+}
+
+.navbar{
+    width: 100%;
+    position: relative;
+}
+
+.dropdown li {
+    display: block;
+
+}
+
+.dropdown-product{
+    position: absolute;
+    left: 0rem;
+    right:0rem;
+    z-index: 100;
+}
+.dropdown-procedure{
+    position: absolute;
+    left: 0rem;
+    right: 0rem;
+    z-index: 100;
+}
+.dropdown-product li{
+    display: block;
+    
+}
+.dropdown-procedure li {
+    display: block;
+}
+.navbar li {
+    display: inline-block;
+
+}
+
+.navbar a {
+    letter-spacing: 0.15rem;
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: whitesmoke;
+    transition: all 0.2s;
+}
+
+.navbar a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+.navbar a:active {
+    transform: scale(0.95);
+}

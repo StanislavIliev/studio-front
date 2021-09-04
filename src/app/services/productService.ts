@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Product} from '../models/product';
-import {Promotion} from '../models/promotion';
 import {ProductAndUserId} from '../models/productAndUserId';
 
 @Injectable({

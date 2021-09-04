@@ -6,20 +6,22 @@ export class User {
   confirmPassword?: string;
   firstName?: string;
   lastName?: string;
-  token?: string;
+  UserToken?: string;
   phoneNumber?: string;
   uniqueString?: string;
   cart?: object;
+  expirationDate?: Date
 
   constructor(){
       this.username = '',
       this.password = '',
       this.email = '',
       this.firstName = '',
-      this.token = '',
+      this.UserToken = '',
       this.lastName = '',
       this.phoneNumber = '',
       this.uniqueString = '',
       this.cart = null;
+      this.expirationDate = null
   }
 }

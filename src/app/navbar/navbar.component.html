@@ -1,4 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<ul class="navbar">
+  <li><a routerLink="/">Home</a></li>
+  <li><a routerLink="/user-update">Update user</a></li>
+  <li><a routerLink="/contact">Contact</a></li>
+  <li><a routerLink="/procedure">Add Procedure</a></li>
+  <li><a routerLink="/procedure-all">Procedures</a></li>
+  <li><a routerLink="/product">Add Product</a></li>
+  <li><a routerLink="/product-all">Products</a></li>
+  <li><a routerLink="/cart">Cart</a></li>
+  <li><a routerLink="/login">Login</a></li>
+  <li><a routerLink="/register">Register</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+</ul>
+
+<!-- 
+<nav class="navbar">
+
+  <div class="dropdown" mdbDropdown>
+    <a mdbDropdownToggle type="button" class="dropdown-toggle">Procedures</a>
+    <div class="dropdown-menu dropdown-primary">
+      <a routerLink="/procedure">Add Procedure</a>
+      <a routerLink="/procedure-all">All Procedures</a>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="status">Procedures</label>
+    <select class="form-control" name="status">
+      <option routerLink="/procedure">Add procedure</option>
+      <option routerLink="/procedure-all">All procedures</option>
+    </select>
+  </div>
+  <select formControlName="preferredBankAccountId" class="form-control" value="">
+    <option value="">Please select</option>
+    <option routerLink="/procedure">Nicky</option>
+  </select>
+  <div class="dropdown">
+    <a>Products</a>
+    <div class="drop-down content">
+      <a routerLink="/product">Add Product</a>
+      <a routerLink="/product-all">All Products</a>
+    </div>
+  </div><a routerLink="/cart">Cart</a>
+  <a type="button" (click)="logout()">Logout</a>
+</nav> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -64,5 +108,4 @@
     </ul>
 
   </div>
-</nav>
-
+</nav> -->

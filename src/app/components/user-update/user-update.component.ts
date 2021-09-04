@@ -35,7 +35,7 @@ export class UserUpdateComponent implements OnInit {
     this.user = {...this.updateUserForm.value};
     this.authService.updateUser(this.user)
       .subscribe((response) => {
-        this.authService.addUserToLocalCache(response);
+       // this.authService.addUserToLocalCache(response);
 
         this.router.navigate(['/']);
       });
