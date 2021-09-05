@@ -23,8 +23,6 @@ on(registerSuccess, (state, action) => {
 })
 );
 
-
-
 export function AuthReducer(state, action){
   return _authReducer(state,action);
 }
