@@ -14,7 +14,8 @@ import { AuthPasswordEmail } from "src/app/models/auth.responsibledate";
 @Injectable()
 export class AuthEffects{
 
-  constructor(private actions$ : Actions,
+  constructor(
+    private actions$ : Actions,
     private authService: AuthService,
     private store: Store<AppState>,
     private router: Router,
@@ -86,7 +87,7 @@ autoLogin$ = createEffect(() => {
 }
 );
 
-autoLgout$ = createEffect(() =>{
+autoLogout$ = createEffect(() =>{
     return this.actions$.pipe(ofType(autoLogout),map(action =>{
       this.authService.logout();
       this.router.navigate(['auth']);

@@ -9,6 +9,7 @@ import { ProcedureComponent } from './procedure/procedure.component';
 import { ProcedureAllComponent } from './procedure-all/procedure-all.component';
 import { ProcedureUpdateComponent } from './procedure-update/procedure-update.component';
 import { EffectsModule } from "@ngrx/effects";
+import { NotifierModule } from 'angular-notifier';
 
 const routes: Routes = [
   {path: 'product-add', component: ProductComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    NotifierModule,
     EffectsModule.forFeature(),
     
   ],
@@ -40,6 +42,8 @@ const routes: Routes = [
     ProductComponent,
     ProductAllComponent,
     ProcedureAllComponent,
+    ProcedureUpdateComponent,
+    ProductUpdateComponent
   ]
 })
 export class ProductModule { }

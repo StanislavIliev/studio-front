@@ -43,6 +43,7 @@ const routes: Routes = [{
     RegisterComponent,
     ResponseResetComponent,
     RequestResetComponent,
+    UserUpdateComponent,
     UserUpdateComponent
   ]
 })
