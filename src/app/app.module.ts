@@ -8,11 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { OrderComponent } from './components/order/order.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { OrderUpdateComponent } from './components/order-update/order-update.component';
-import { OrderDetailsComponent } from './components/order-details/order-details.component';
-import { OrdersAllComponent } from './components/orders-all/orders-all.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AuthTokenInterceptor } from './services/auth.token.interceptor';
 import { AuthModule } from './auth.module/auth.module';
@@ -26,7 +22,9 @@ import { appReducer } from './store/app.state';
 import { environment } from 'src/environments/environment';
 import { AuthEffects } from './auth.module/state/auth.effects';
 import { ProductEffects } from './product.module/state/product.effects';
-import { CustomSerializer } from './state/router/custom.serializer';
+import { OrderModule } from './order.module/order.module';
+import { OrderEffects } from './order.module/state/order.effects';
+import { CustomSerializer } from './store/router/custom.serializer';
 
 @NgModule({
   declarations: [
@@ -36,10 +34,6 @@ import { CustomSerializer } from './state/router/custom.serializer';
     HeaderComponent,
     HomePageComponent,
     ContactComponent,
-    OrderComponent,
-    OrderUpdateComponent,
-    OrderDetailsComponent,
-    OrdersAllComponent,
     CartComponent
   ],
     imports: [
@@ -51,11 +45,13 @@ import { CustomSerializer } from './state/router/custom.serializer';
          NotifierModule,
          AuthModule,
          ProductModule,
+         OrderModule,
          StoreModule.forRoot(appReducer),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         EffectsModule.forRoot([
         AuthEffects,
-        ProductEffects
+        ProductEffects,
+        OrderEffects
         ]),
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer

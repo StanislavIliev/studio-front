@@ -4,6 +4,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { OrderService } from '../../services/orderService';
 import { User } from '../../models/user';
 import {Router} from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { orderStart  } from '../state/order.actions';
 
 @Component({
   selector: 'app-order',
@@ -18,8 +21,9 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private orderService: OrderService ,
-    private router: Router
-  ) {
+    private router: Router,
+    private store: Store<AppState>
+      ) {
   }
 
   ngOnInit(): void {
@@ -33,13 +37,9 @@ export class OrderComponent implements OnInit {
 
   addOrder(): any {
     const newOrder = {...this.addOrderForm.value};
-    console.log(newOrder);
-    this.orderService.addOrderForm(newOrder)
-      .subscribe((response) => {
-        this.order = response;
-        console.log(this.order);
-        this.router.navigate(['/orders-all']);
-      });
+    this.store.dispatch(orderStart({newOrder}))
+    this.router.navigate(['/orders-all']);
+
   }
 
   getOrderById(orderId: string): void{
