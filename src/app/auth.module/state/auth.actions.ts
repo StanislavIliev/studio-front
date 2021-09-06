@@ -42,3 +42,13 @@ export const EMAIL_FORGOTTEN_PASSWORD_FAIL = '[auth] email forgotten password fa
 export const requestPaswordStart = createAction(EMAIL_FORGOTTEN_PASSWORD, props<{requestType: string, email: string}>());
 export const requestPaswordSuccess = createAction(EMAIL_FORGOTTEN_PASSWORD_SUCCESS, props<{message: string}>());
 export const requestPaswordFail = createAction(EMAIL_FORGOTTEN_PASSWORD_FAIL, props<{message: string}>());
+
+
+
+export const USER_UPDATE_START = '[auth] update user start';
+export const USER_UPDATE_SUCCESS = '[auth] update user success';
+export const USER_UPDATE_FAIL = '[auth] update user fail';
+
+export const userUpdateStart = createAction(USER_UPDATE_START , props<{ updatedUser : User }>());
+export const userUpdateSuccess = createAction(USER_UPDATE_SUCCESS , props<{ message:string , updatedUser : User }>());;
+export const userUpdateFail = createAction(USER_UPDATE_FAIL , props<{ message : string }>());;

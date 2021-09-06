@@ -2,10 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpEvent, HttpHeaders } from '@angular/common/http';
 import {User} from '../models/user';
 import {Observable , BehaviorSubject} from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
-import {JwtResponse} from '../helpers/JwtResponse';
-import {CookieService} from 'ngx-cookie-service';
 import { AuthPasswordEmail, AuthResponseData } from '../models/auth.responsibledate';
 import { Store } from '@ngrx/store';
 import { autoLogout } from '../auth.module/state/auth.actions';
@@ -86,12 +82,7 @@ runTimeoutInterval(user: User){
 
   public updateUser(user: User): Observable<User> {
     return this.http.post<User>(`http://localhost:8080/users/update`, user);
-  }
-
-  handleError(error: HttpErrorResponse): void {
-    console.log(error);
-  }
-  
+  }  
 
   getUserFromLocalStorage(){
     const userDataString = localStorage.getItem('userData');
@@ -109,16 +100,6 @@ runTimeoutInterval(user: User){
     return null;
   }
 
-  logout(){
-    localStorage.removeItem('userData');
-    if(this.timeoutInterval){
-      clearTimeout(this.timeoutInterval);
-      this.timeoutInterval =null;
-    }
-
-  }
-
-
   getErrorMessage(message: string){
     switch(message){
       case 'EMAIL_NOT_FOUND':
@@ -131,5 +112,15 @@ runTimeoutInterval(user: User){
           return 'Unknown error occurred, please try again.'
     }
     }
+
+  logout(){
+    localStorage.removeItem('userData');
+    if(this.timeoutInterval){
+      clearTimeout(this.timeoutInterval);
+      this.timeoutInterval =null;
+    }
+
+  }
+
 }
 
