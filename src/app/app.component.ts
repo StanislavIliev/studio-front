@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { autoLogin } from './auth.module/state/auth.actions';
+import { autoLogin } from './auth/state/auth.actions';
 import { AppState } from './store/app.state';
 import { getErrorMessage, getLoading } from './store/Shared/shared.selector';
 

@@ -1,6 +1,6 @@
 import { routerReducer, RouterReducerState } from "@ngrx/router-store";
-import { authReducer, AUTH_STATE_NAME } from "../auth.module/state/auth.reducer";
-import { AuthState } from "../auth.module/state/auth.state";
+import { authReducer, AUTH_STATE_NAME } from "../auth/state/auth.reducer";
+import { AuthState } from "../auth/state/auth.state";
 import { SharedReducer, SHARED_STATE_NAME } from "./Shared/shared.reducer";
 import { SharedState } from "./Shared/shared.state";
 

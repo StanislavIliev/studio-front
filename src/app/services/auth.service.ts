@@ -4,7 +4,7 @@ import {User} from '../models/user';
 import {Observable , BehaviorSubject} from 'rxjs';
 import { AuthPasswordEmail, AuthResponseData } from '../models/auth.responsibledate';
 import { Store } from '@ngrx/store';
-import { autoLogout } from '../auth.module/state/auth.actions';
+import { autoLogout } from '../auth/state/auth.actions';
 import { AppState } from '../store/app.state';
 
 @Injectable({

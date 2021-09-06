@@ -9,11 +9,11 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'cart', component: CartComponent},
   {path: 'order', 
-  loadChildren:() => import('./order.module/order.module').then((m) => m.OrderModule)},
+  loadChildren:() => import('./order/order.module').then((m) => m.OrderModule)},
   {path: 'product' ,
-  loadChildren:() => import('./product.module/product.module').then((m) => m.ProductModule)},
+  loadChildren:() => import('./product/product.module').then((m) => m.ProductModule)},
   {path: 'auth',
-   loadChildren: () => import('./auth.module/auth.module').then((m) => m.AuthModule)}
+   loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)}
 
 ];
 

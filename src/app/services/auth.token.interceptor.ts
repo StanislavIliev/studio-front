@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.state';
 import { exhaustMap, take } from 'rxjs/operators';
-import { getToken } from '../auth.module/state/auth.selector';
+import { getToken } from '../auth/state/auth.selector';
 
 @Injectable()
 export class AuthTokenInterceptor implements HttpInterceptor {
