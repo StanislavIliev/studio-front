@@ -3,7 +3,6 @@ import { FormGroup , FormControl , Validators } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
 import { Store } from '@ngrx/store';
 import {AuthService} from 'src/app/services/auth.service';
-// import { requestPassword ,resetNewPassword } from '../state/auth.actions';
 import { AppState } from 'src/app/store/app.state';
 import { requestPaswordStart } from '../state/auth.actions';
 

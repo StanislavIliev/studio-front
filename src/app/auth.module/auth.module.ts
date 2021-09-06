@@ -33,6 +33,9 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     EffectsModule.forFeature(),
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     NotifierModule,
     RouterModule.forChild(routes)
